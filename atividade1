@@ -1,0 +1,65 @@
+/**
+ * SistemaEscolar
+ * Simula um sistema escolar calculando médias bimestrais, semestrais e final 
+ * a partir de 8 notas anuais pré-definidas.
+ */
+public class SistemaEscolar {
+
+    public static void main(String[] args) {
+        
+        // Array com as 8 notas anuais fornecidas:
+        // Notas: [B1.Nota1, B1.Nota2, B2.Nota1, B2.Nota2, B3.Nota1, B3.Nota2, B4.Nota1, B4.Nota2]
+        // Valores: [7.0, 9.0, 6.0, 8.0, 5.0, 10.0, 7.5, 6.5]
+        double[] notas = {7.0, 9.0, 6.0, 8.0, 5.0, 10.0, 7.5, 6.5};
+
+        System.out.println("--- Sistema de Cálculo de Médias Escolares ---");
+        System.out.println("Utilizando as notas fixas: 7.0, 9.0, 6.0, 8.0, 5.0, 10.0, 7.5, 6.5");
+
+        // 1. CÁLCULO DAS MÉDIAS BIMESTRAIS
+        // Média = Média das duas notas de cada bimestre.
+        double mediaBimestre1 = (notas[0] + notas[1]) / 2.0;
+        double mediaBimestre2 = (notas[2] + notas[3]) / 2.0;
+        double mediaBimestre3 = (notas[4] + notas[5]) / 2.0;
+        double mediaBimestre4 = (notas[6] + notas[7]) / 2.0;
+
+        // 2. CÁLCULO DAS MÉDIAS SEMESTRAIS
+        // Média = Média dos dois bimestres de cada semestre.
+        double mediaSemestre1 = (mediaBimestre1 + mediaBimestre2) / 2.0;
+        double mediaSemestre2 = (mediaBimestre3 + mediaBimestre4) / 2.0;
+
+        // 3. CÁLCULO DA MÉDIA FINAL
+        // Média Final = Média das duas médias semestrais.
+        double mediaFinal = (mediaSemestre1 + mediaSemestre2) / 2.0;
+
+        // 4. APRESENTAÇÃO DOS RESULTADOS
+        System.out.println("\n--- RESULTADOS GERAIS ---");
+        System.out.println("---------------------------------------");
+        
+        // 1º Semestre
+        System.out.println("1º SEMESTRE");
+        System.out.printf("  1º Bimestre: %.1f\n", mediaBimestre1);
+        System.out.printf("  2º Bimestre: %.1f\n", mediaBimestre2);
+        System.out.printf("  Média do 1º Semestre: %.1f\n", mediaSemestre1);
+        System.out.println("---------------------------------------");
+        
+        // 2º Semestre
+        System.out.println("2º SEMESTRE");
+        System.out.printf("  3º Bimestre: %.1f\n", mediaBimestre3);
+        System.out.printf("  4º Bimestre: %.1f\n", mediaBimestre4);
+        System.out.printf("  Média do 2º Semestre: %.1f\n", mediaSemestre2);
+        System.out.println("---------------------------------------");
+        
+        // Média Final
+        System.out.printf("MÉDIA FINAL ANUAL: %.1f\n", mediaFinal);
+        System.out.println("---------------------------------------");
+
+        // Mensagem de status
+        if (mediaFinal >= 7.0) {
+            System.out.println("Parabéns! Aluno Aprovado.");
+        } else if (mediaFinal >= 5.0) {
+            System.out.println("Aluno em Recuperação Final.");
+        } else {
+            System.out.println("Aluno Reprovado.");
+        }
+    }
+}
